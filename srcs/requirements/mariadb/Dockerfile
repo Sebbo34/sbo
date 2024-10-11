@@ -2,14 +2,10 @@ FROM debian:bullseye
 
 RUN apt update
 RUN apt upgrade -y
-RUN apt install mariadb-server -y    
-COPY /tools/script.sh /docker-entrypoint-initdb.d/
-
-# Donner les droits d'exécution au script d'initialisation
+RUN apt install mariadb-server -y   
+COPY ./conf/mdbconf.cnf etc/mysql/mariadb.conf.d/50-server.cnf 
+COPY ./tools/script.sh /docker-entrypoint-initdb.d/
 RUN chmod +x /docker-entrypoint-initdb.d/init_db.sh
-
-# Exposer le port 3306 pour MariaDB
+ENTRYPOINT ["/docker-entrypoint-initdb.d/init_db.sh"]
 EXPOSE 3306
-
-# Utiliser l'entrypoint par défaut pour MariaDB
-CMD ["mysqld"]
+CMD ["mysqld", "--bind-address=0.0.0.0"]
