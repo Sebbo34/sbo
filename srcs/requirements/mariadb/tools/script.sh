@@ -1,8 +1,6 @@
 #!/bin/sh
 
 # Démarrer MySQL avec mysqld_safe
-rm -rf /var/run/mysqld && mkdir /var/run/mysqld && chown mysql /var/run/mysqld/
-pkill -9 mysqld
 mysqld_safe &
 /etc/init.d/mysql start
 # Attendre que MySQL démarre
