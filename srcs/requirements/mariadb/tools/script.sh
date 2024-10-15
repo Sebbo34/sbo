@@ -1,8 +1,6 @@
 #!/bin/sh
 
 # Démarrer MySQL avec mysqld_safe
-mysqld_safe &
-/etc/init.d/mysql start
 # Attendre que MySQL démarre
 until mysqladmin ping &>/dev/null; do
   echo "Waiting for MySQL to start..."
@@ -24,3 +22,4 @@ mysql -e "FLUSH PRIVILEGES;"
 
 # Laisser MySQL tourner en avant-plan pour que le conteneur reste actif
 exec mysqld_safe
+exec "$@"
