@@ -1,4 +1,3 @@
-export SQL_DATABASE=my_database SQL_USER=my_user SQL_PASSWORD=my_password SQL_ROOT_PASSWORD=my_root_password WP_PATH=/var/www/html/wordpress
 
 # Démarrer MySQL avec mysqld_safe en arrière-plan
 mysqld_safe &

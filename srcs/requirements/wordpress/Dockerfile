@@ -20,6 +20,7 @@ COPY ./conf/www.conf /etc/php/<version>/fpm/pool.d/
 
 COPY ./conf/auto-config.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/auto-config.sh
+EXPOSE 9000
 ENTRYPOINT ["/usr/local/bin/auto-config.sh"]
 RUN mkdir -p /run/php
 CMD ["/usr/sbin/php-fpm7.3", "-F"]
