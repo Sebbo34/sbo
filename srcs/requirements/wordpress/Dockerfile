@@ -16,11 +16,11 @@ RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
-COPY ./conf/www.conf /etc/php/<version>/fpm/pool.d/
+COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
 
 COPY ./conf/auto-config.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/auto-config.sh
 EXPOSE 9000
 ENTRYPOINT ["/usr/local/bin/auto-config.sh"]
 RUN mkdir -p /run/php
-CMD ["/usr/sbin/php-fpm7.3", "-F"]
+CMD ["/usr/sbin/php-fpm7.4", "-F"]
