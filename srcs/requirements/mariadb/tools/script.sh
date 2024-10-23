@@ -1,24 +1,14 @@
+#!/bin/bash
 
-mysqld_safe &
+service mysql start
+echo "CREATE DATABASE IF NOT EXISTS $SQL_DATABASE ;" > db1.sql
+echo "CREATE USER IF NOT EXISTS '$SQL_USER'@'%' IDENTIFIED BY '$SQL_PASSWORD' ;" >> db1.sql
+echo "GRANT ALL PRIVILEGES ON $SQL_DATABASE.* TO '$SQL_USER'@'%' ;" >> db1.sql
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '12345' ;" >> db1.sql
+echo "FLUSH PRIVILEGES;" >> db1.sql
 
-# Attendre que MySQL soit prêt
-until mysqladmin ping -u root -p"${SQL_ROOT_PASSWORD}" &>/dev/null; do
-  echo "Waiting for MySQL to start..."
-  sleep 2
-done
+mysql < db1.sql
 
-# Créer la base de données si elle n'existe pas
-mysql -u root -p"${SQL_ROOT_PASSWORD}" -e "CREATE DATABASE IF NOT EXISTS \`${SQL_DATABASE}\`;"
+mysqladmin -u root -p'12345' shutdown
 
-# Créer l'utilisateur et lui accorder des privilèges si nécessaire
-mysql -u root -p"${SQL_ROOT_PASSWORD}" -e "CREATE USER IF NOT EXISTS '${SQL_USER}'@'localhost' IDENTIFIED BY '${SQL_PASSWORD}';"
-mysql -u root -p"${SQL_ROOT_PASSWORD}" -e "GRANT ALL PRIVILEGES ON \`${SQL_DATABASE}\`.* TO '${SQL_USER}'@'%';"
-
-# Modifier le mot de passe root
-mysql -u root -p"${SQL_ROOT_PASSWORD}" -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${SQL_ROOT_PASSWORD}';"
-
-# Appliquer les privilèges
-mysql -u root -p"${SQL_ROOT_PASSWORD}" -e "FLUSH PRIVILEGES;"
-
-# Laisser MySQL tourner en avant-plan pour que le conteneur reste actif
-exec mysqld_safe
+mysqld
