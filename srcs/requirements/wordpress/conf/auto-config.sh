@@ -10,6 +10,7 @@ if [ ! -f wp-config.php ]; then
 						--dbuser=$SQL_USER \
 						--dbpass=$SQL_PASSWORD \
 						--dbhost=mariadb:3306 --path='/var/www/wordpress/'
+	ls
 fi
 
 exec "$@"
