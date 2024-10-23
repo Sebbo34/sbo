@@ -4,6 +4,7 @@ cd /var/www/wordpress
 
 if [ ! -f wp-config.php ]; then
 	pwd
+	ls
     wp config create	--allow-root \
 						--dbname=$SQL_DATABASE \
 						--dbuser=$SQL_USER \
