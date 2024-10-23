@@ -12,8 +12,5 @@ if [ ! -f wp-config.php ]; then
     wp core install --allow-root --url=localhost --title=Site_Title --admin_user=admin_username --admin_password=admin_password --admin_email=your@email.com
     wp user create login email [--role=user] [--user_pass=password] [--allow-root]
 fi
-else
-	echo ici2
-fi
 
 exec "$@"
