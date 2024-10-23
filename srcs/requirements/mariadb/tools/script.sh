@@ -1,5 +1,4 @@
 
-# Démarrer MySQL avec mysqld_safe en arrière-plan
 mysqld_safe &
 
 # Attendre que MySQL soit prêt
