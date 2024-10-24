@@ -9,7 +9,7 @@ RUN openssl req -x509 -nodes -out /etc/nginx/ssl/inception.crt -keyout /etc/ngin
 COPY conf/default /etc/nginx/sites-available/default
 RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-RUN chown -R www-data:www-data /var/www/html
+RUN chown -R root:root /var/www/html
 RUN chmod -R 755 /var/www/html
 RUN chmod 644 /var/www/html/*
 RUN chown -R www-data:www-data /var/www/html
