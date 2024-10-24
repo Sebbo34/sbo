@@ -7,3 +7,4 @@ COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 COPY ./tools/script.sql /docker-entrypoint-initdb.d/
 RUN chmod +x /docker-entrypoint-initdb.d/script.sql
 EXPOSE 3306
+CMD ["mysqld", "--bind-address=0.0.0.0"]
