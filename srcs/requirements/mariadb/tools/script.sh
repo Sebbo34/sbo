@@ -10,4 +10,6 @@ echo "FLUSH PRIVILEGES;" >> db1.sql
 
 mysql < db1.sql
 
+mysqladmin -u root -p'12345' shutdown
+
 mysqld_safe
