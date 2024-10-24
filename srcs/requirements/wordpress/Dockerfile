@@ -18,6 +18,13 @@ RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
 
+RUN find /var/www/wordpress -type f -exec chmod 644 {} \;
+RUN find /var/www/wordpress -type d -exec chmod 755 {} \;
+
+RUN chown -R www-data:www-data /var/www/wordpress/wp-content/uploads
+RUN chown -R www-data:www-data /var/www/wordpress/wp-content/plugins
+RUN chown -R www-data:www-data /var/www/wordpress/wp-content/themes
+
 COPY ./conf/auto-config.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/auto-config.sh
 EXPOSE 9000
