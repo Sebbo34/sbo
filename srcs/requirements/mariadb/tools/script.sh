@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mysqld_safe --skip-networking &
+service mysql start
 sleep 10
 echo "CREATE DATABASE IF NOT EXISTS $SQL_DATABASE ;" > db1.sql
 echo "CREATE USER IF NOT EXISTS '$SQL_USER'@'%' IDENTIFIED BY '$SQL_PASSWORD' ;" >> db1.sql
