@@ -12,4 +12,4 @@ mysql < db1.sql
 
 mysqladmin -u root -p'12345' shutdown
 
-mysqld_safe
+exec mysqld_safe
