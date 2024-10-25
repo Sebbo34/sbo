@@ -21,7 +21,7 @@ RUN chmod -R 755 /var/lib/mysql/
 
 EXPOSE 3306
 
-COPY ./tools/dbscript.sh ./
-RUN chmod +x ./dbscript.sh
+COPY ./tools/script.sh ./
+RUN chmod +x ./script.sh
 
-ENTRYPOINT ["bash", "./dbscript.sh"]
+ENTRYPOINT ["bash", "./script.sh"]
