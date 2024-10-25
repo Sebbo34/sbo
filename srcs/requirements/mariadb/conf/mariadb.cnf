@@ -2,4 +2,3 @@
 
 !includedir /etc/mysql/conf.d/
 !includedir /etc/mysql/mariadb.conf.d/
-bind-address= 0.0.0.0
