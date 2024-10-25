@@ -14,5 +14,5 @@ if [ ! -f wp-config.php ]; then
     wp user create login email --role=user --user_pass=password --allow-root
 	ls
 fi
-
+mkdir /run/php
 exec /usr/sbin/php-fpm7.4 -F -R
