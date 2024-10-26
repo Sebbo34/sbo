@@ -12,3 +12,4 @@ mysql < db1.sql
 mysqladmin -u root -p'12345' shutdown
 
 exec mysqld_safe
+echo MARIAAAAAA
