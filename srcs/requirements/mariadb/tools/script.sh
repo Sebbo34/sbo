@@ -12,7 +12,7 @@ mysql -e "FLUSH PRIVILEGES;"
 
 mysqladmin -u root -p${SQL_ROOT_PASSWORD} shutdown
 #mysqladmin -u root shutdown
-exec mysqld_safe
+exec mysqld_safe --bind-address= 0.0.0.0
 
 #print status
 echo "MariaDB database and user were created successfully! "
