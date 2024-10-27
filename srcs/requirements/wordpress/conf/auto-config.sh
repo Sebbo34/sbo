@@ -1,6 +1,7 @@
 #!/bin/sh
-
+mkdir /var/www/html/wordpress
 cd /var/www/html/wordpress
+wp core dowload
 mv /var/www/html/wordpress/wp-config-sample.php /var/www/html/wp-config.php
 
 mv /wp-config.php /var/www/html/wordpress/wp-config.php
