@@ -23,10 +23,10 @@
 define( 'DB_NAME', 'my_database' );
 
 /** MySQL database username */
-define( 'DB_USER', 'my_user' );
+define( 'DB_USER', 'dbuser' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'my_password' );
+define( 'DB_PASSWORD', 'dbpassword' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'mariadb:3306' );
