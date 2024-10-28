@@ -1,5 +1,4 @@
 [server]
-bind-address= 0.0.0.0
 [mysqld]
 user = mysql
 port = 3306
