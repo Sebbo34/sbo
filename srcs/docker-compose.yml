@@ -60,7 +60,7 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/sbo/mb'
+      device: '/home/sbo/mb2'
   wordpress:
     driver: local
     driver_opts:
