@@ -1,6 +1,6 @@
 #!/bin/sh
 cd /var/www/html/wordpress
-wp core dowload --allow-root
+wp core download --allow-root
 curl -O https://raw.githubusercontent.com/WordPress/WordPress/master/wp-config-sample.php && \
     cp wp-config-sample.php wp-config.php
    	sed -i "s/database_name_here/my_database/" wp-config.php && \
