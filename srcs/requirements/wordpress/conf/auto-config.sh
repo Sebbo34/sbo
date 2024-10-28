@@ -1,13 +1,13 @@
 #!/bin/sh
 cd /var/www/html/wordpress
 wp core download --allow-root
+sleep 10
 curl -O https://raw.githubusercontent.com/WordPress/WordPress/master/wp-config-sample.php && \
     cp wp-config-sample.php wp-config.php
    	sed -i "s/database_name_here/$SQL_DATABASE/" wp-config.php && \
     sed -i "s/username_here/$SQL_USER/" wp-config.php && \
     sed -i "s/password_here/$SQL_PASSWORD/" wp-config.php && \
     sed -i "s/localhost/$SQL_HOST/" wp-config.php
-sleep 30
 wp core install --allow-root --url=https://localhost --title=$SITE_TITLE --admin_user=$ADMIN --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL
 wp user create	--allow-root \
 			${USER_LOGIN} ${USER_MAIL} \
