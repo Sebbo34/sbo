@@ -7,12 +7,8 @@ curl -O https://raw.githubusercontent.com/WordPress/WordPress/master/wp-config-s
     sed -i "s/username_here/my_user/" wp-config.php && \
     sed -i "s/password_here/my_password/" wp-config.php && \
     sed -i "s/localhost/mariadb:3306/" wp-config.php
-sleep 5
-wp core install --allow-root --url=https://$DOMAINE_NAME --title=$SITE_TITLE --admin_user=$WP_ADMIN --admin_password=$WP_ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL
-
-wp user create	--allow-root \
-			${USER1_LOGIN} ${USER1_MAIL} \
-			--role=author \
-			--user_pass=${USER1_PASS} ;
+sleep 15
+wp core install --allow-root --url=https://localhost --title=Site_Title --admin_user=admin_username --admin_password=admin_password --admin_email=your@email.com
+wp user create login email --role=user --user_pass=password --allow-root
 mkdir /run/php
 exec /usr/sbin/php-fpm7.4 -F -R
