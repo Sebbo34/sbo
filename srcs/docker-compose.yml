@@ -60,13 +60,13 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/sbo/a'
+      device: '/home/sbo/mb'
   wordpress:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/sbo/b'
+      device: '/home/sbo/wp'
 
 networks:
   inception:
