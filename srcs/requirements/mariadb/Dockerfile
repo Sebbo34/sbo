@@ -14,4 +14,4 @@ RUN chmod -R 755 /var/run/mysqld/
 RUN chown mysql:mysql /var/lib/mysql/
 RUN chmod -R 755 /var/lib/mysql/
 EXPOSE 3306
-CMD ["mysqld_safe"]
+ENTRYPOINT [ "/docker-entrypoint-initdb.d/script.sh" ]
