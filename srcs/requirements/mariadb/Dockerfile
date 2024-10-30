@@ -13,6 +13,6 @@ RUN chown mysql:mysql /var/run/mysqld/
 RUN chmod -R 755 /var/run/mysqld/
 RUN chown mysql:mysql /var/lib/mysql/
 RUN chmod -R 755 /var/lib/mysql/
-RUN mysqld_safe
+RUN mysqld_safe &
 EXPOSE 3306
 ENTRYPOINT ["/script.sh"]
