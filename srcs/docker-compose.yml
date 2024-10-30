@@ -60,13 +60,13 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/sbo/mb'
+      device: '/home/sbo/data/mariadb'
   wordpress:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/sbo/wp'
+      device: '/home/sbo/data/wordpress'
 
 networks:
   inception:
