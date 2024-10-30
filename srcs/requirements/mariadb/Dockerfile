@@ -15,3 +15,4 @@ RUN chown mysql:mysql /var/lib/mysql/
 RUN chmod -R 755 /var/lib/mysql/
 EXPOSE 3306
 ENTRYPOINT ["/script.sh"]
+CMD [""]
