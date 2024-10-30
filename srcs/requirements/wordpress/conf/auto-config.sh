@@ -11,4 +11,4 @@ sleep 1
 wp core install --allow-root --url=https://$DOMAIN_NAME --title=$SITE_TITLE --admin_user=$ADMIN --admin_password=$ADMIN_PASSWORD --admin_email=$ADMIN_EMAIL
 wp user create	--allow-root ${USER_LOGIN} ${USER_MAIL} --role=author --user_pass=${USER_PASS};
 mkdir /run/php
-exec /usr/sbin/php-fpm7.4 -F -R
+exec  -F -R
