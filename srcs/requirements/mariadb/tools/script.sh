@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mysqld_safe --skip-networking
+mysqld_safe
 while ! mysqladmin ping --silent; do
     sleep 1
 done
